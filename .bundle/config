@@ -1,0 +1,3 @@
+---
+BUNDLE_BIN: ./b
+BUNDLE_CACHE_ALL: true
