@@ -35,6 +35,8 @@ Vagrant::Config.run do |config|
     "wget -q -O - https://get.docker.io/gpg | apt-key add -",
     "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list",
     "apt-get update -q; apt-get install -q -y --force-yes lxc-docker",
+    'sed -i "s/respawn.*/&\n\nenv http_proxy=\"http:\/\/proxy.intra.bt.com:8080\"\nenv https_proxy=\"http:\/\/proxy.intra.bt.com:8080\"/" /etc/init/docker.conf',
+    'service docker restart'
   ]
 
   provision_dockerize = [
