@@ -13,7 +13,7 @@ describe 'Hi' do
     before { get '/' }
 
     it "greets us" do
-      expect(last_response.body).to include('I am a Sinatra app running inside a docker container')
+      expect(last_response.body).to include('I az a Sinatra app running inside a docker container')
     end
   end
 end
