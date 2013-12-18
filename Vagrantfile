@@ -59,6 +59,11 @@ Vagrant::Config.run do |config|
     'fi',
   ]
 
+  provision_essentials = [
+    "apt-get update -q",
+    %{apt-get install -q -y vim},
+  ]
+
   provision_docker = [
     "apt-get update -q",
     "wget -q -O - https://get.docker.io/gpg | apt-key add -",
@@ -91,6 +96,7 @@ Vagrant::Config.run do |config|
   provisioning_script  = ["export DEBIAN_FRONTEND=noninteractive"]
   provisioning_script += provision_guest_additions
   provisioning_script += backport_kernel
+  provisioning_script += provision_essentials
   provisioning_script += provision_docker
   provisioning_script += provision_dockerize
   provisioning_script += provision_app
