@@ -9,6 +9,8 @@ RUN \
   bundle install --local ;\
 # END RUN
 
-CMD . /.profile && cd /var/apps/sinatra_docker_test && bin/test && bin/boot
+WORKDIR /var/apps/sinatra_docker_test
+
+ENTRYPOINT ["bin/run"]
 
 EXPOSE 8000

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+# TODO: this doesn't really belong in here....
+export HOME=/root
+export RUBY_BUILD_VERSION=20131024
+export RUBY_VERSION=2.0.0-p247
+export PATH=/usr/local/lib/2.0.0-p247/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+if [[ $1 == '--run-tests' ]]; then
+  b/rspec
+else
+  b/rackup -p 8000
+fi
